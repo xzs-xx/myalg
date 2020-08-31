@@ -17,12 +17,12 @@ namespace sortTest
 		TEST_METHOD(TestMethod1)
 		{
 			int i;
-			int a[] = { 1, 4, 2, 3, 5 };
+			int a[] = { 1, 4, 2, 6, 3, 5 };
 			fastsortList f;
-			f.quickSort(a, 0, 4, cmp);
+			f.quickSort(a, 0, 5, cmp);
 			for (i = 0; i < 4; i++)
 			{
-				Assert::AreEqual(a[i], i + 1);
+				Assert::AreEqual(a[i], i - 1);
 			}
 		}
 	};
