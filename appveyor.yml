@@ -5,16 +5,29 @@ platform: x64
 clone_folder: C:\Users\DELL\Desktop\project\alg
 build:
   project: fastsortList\fastsortList.sln
+  publish_wap: true
+  publish_azure_webjob: true
+  publish_azure: true
+  publish_nuget: true
+  publish_nuget_symbols: true
+  use_snupkg_format: true
+  include_nuget_references: true
+  publish_aspnet_core: true
+  publish_core_console: true
   parallel: true
   verbosity: minimal
 after_build:
 - cmd: echo 成功
 before_test:
-- cmd: echo 测试开始
+- cmd: >-
+    echo 测试开始
+
+    vstest.console /logger:Appveyor fastsortList\x64\Debug\sortTest.dll
 test:
-  categories:
+  assemblies:
     only:
-    - TestMethod1
+    - fastsortList\x64\Debug\sortTest.dll
+    - '**\*.sortTest.dll'
 after_test:
 - cmd: echo 测试结束
 artifacts:
