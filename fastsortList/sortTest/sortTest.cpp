@@ -22,7 +22,7 @@ namespace sortTest
 			f.quickSort(a, 0, 6, cmp);
 			for (i = 0; i < 7; i++)
 			{
-				Assert::AreEqual(a[i], i - 1);
+				Assert::AreEqual(a[i], i + 1);
 			}
 		}
 	};
