@@ -53,6 +53,10 @@ on_success:
 - cmd: echo 成功建立
 on_failure:
 - cmd: >-
+    git config --global user.email "2993424163@qq.com"
+
+    git config --global user.name "xzs-xx"
+
     git reset --hard HEAD^
 
     git pull origin zsxie
