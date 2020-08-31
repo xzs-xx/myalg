@@ -9,3 +9,26 @@ build:
   verbosity: minimal
 after_build:
 - cmd: echo 成功
+before_test:
+- cmd: ''
+test:
+  assemblies:
+    only:
+    - '**\sortTest.dll'
+    - '**\*.Tests.dll'
+artifacts:
+- path: fastsortList\x64\Debug\*dll
+  name: myalg
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: RrmgG2pXCEIFgz1dsD2eKnG1Z/8nTTKeFoIZ8aXapl9FWrpiL4mPvshFcnj03G9h
+notifications:
+- provider: Email
+  to:
+  - 2993424163@qq.com
+  subject: qq.com
+  message: 成功
+  on_build_success: true
+  on_build_failure: false
+  on_build_status_changed: true
