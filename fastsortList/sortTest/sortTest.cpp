@@ -17,9 +17,9 @@ namespace sortTest
 		TEST_METHOD(TestMethod1)
 		{
 			int i;
-			int a[] = { 1, 4, 2, 6, 3, 5 };
+			int a[] = { 1, 4, 2, 6, 3, 5 ,7};
 			fastsortList f;
-			f.quickSort(a, 0, 5, cmp);
+			f.quickSort(a, 0, 6, cmp);
 			for (i = 0; i < 4; i++)
 			{
 				Assert::AreEqual(a[i], i - 1);
