@@ -22,12 +22,7 @@ before_test:
 - cmd: >-
     echo 测试开始
 
-    vstest.console /logger:Appveyor **\*.sortTest.dll
-test:
-  assemblies:
-    only:
-    - fastsortList\x64\Debug\sortTest.dll
-    - '**\*.sortTest.dll'
+    vstest.console /logger:Appveyor fastsortList\x64\Debug\sortTest.dll
 after_test:
 - cmd: echo 测试结束
 artifacts:
