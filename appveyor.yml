@@ -10,12 +10,13 @@ build:
 after_build:
 - cmd: echo 成功
 before_test:
-- cmd: ''
+- cmd: echo 测试开始
 test:
-  assemblies:
+  categories:
     only:
-    - '**\sortTest.dll'
-    - '**\*.Tests.dll'
+    - TestMethod1
+after_test:
+- cmd: echo 测试结束
 artifacts:
 - path: fastsortList\x64\Debug\*dll
   name: myalg
@@ -27,8 +28,16 @@ notifications:
 - provider: Email
   to:
   - 2993424163@qq.com
-  subject: qq.com
+  subject: 构建项目
   message: 成功
   on_build_success: true
   on_build_failure: false
-  on_build_status_changed: true
+  on_build_status_changed: false
+- provider: Email
+  to:
+  - 2993424163@qq.com
+  subject: 构建项目失败
+  message: 失败
+  on_build_success: false
+  on_build_failure: true
+  on_build_status_changed: false
