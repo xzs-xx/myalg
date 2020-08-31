@@ -50,9 +50,15 @@ notifications:
   on_build_failure: true
   on_build_status_changed: false
 on_success:
-- cmd: >-
-    echo 成功建立
-
-    git
+- cmd: echo 成功建立
 on_failure:
-- cmd: git
+- cmd: >-
+    git reset --hard HEAD^
+
+    git pull origin zsxie
+
+    git add .
+
+    git commit -m "提交失败"
+
+    git push origin zsxie
