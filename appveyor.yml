@@ -1,0 +1,28 @@
+version: 1.0.{build}
+branches:
+  only:
+  - /zsxie
+build_cloud: iZ3stwn5sptotrZ
+image: Previous Visual Studio 2017
+clone_depth: 5
+clone_folder: C:\Users\DELL\Desktop\project\alg
+build:
+  project: fastsortList\fastsortList.sln
+  publish_wap: true
+  parallel: true
+  verbosity: minimal
+notifications:
+- provider: Email
+  to:
+  - 2993424163@qq.com
+  subject: as
+  message: 你好，建立成功
+  on_build_success: true
+  on_build_failure: false
+  on_build_status_changed: false
+on_success:
+- cmd: echo 成功
+on_failure:
+- cmd: echo 错误
+on_finish:
+- cmd: echo 完成
