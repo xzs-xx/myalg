@@ -1,0 +1,11 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+configuration: DeBug
+platform: x64
+clone_folder: C:\Users\DELL\Desktop\project\alg
+build:
+  project: fastsortList\fastsortList.sln
+  parallel: true
+  verbosity: minimal
+after_build:
+- cmd: echo 成功
