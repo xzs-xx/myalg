@@ -10,6 +10,10 @@ namespace sortTest
 	{
 		return a >= b;
 	};
+	bool cmpfloat(float a,float b)
+	{
+		return a >= b;
+	};
 	TEST_CLASS(sortTest)
 	{
 	public:
@@ -24,6 +28,19 @@ namespace sortTest
 			{
 				Assert::AreEqual(a[i], i + 1);
 			}
+		};
+		TEST_METHOD(TestMethod2)
+		{
+			int i;
+			float a[] = { 1.2, 3.4, 0.1, 1.1, 2.2, 2.9 };
+			float b[] = { 0.1, 1.1, 1.2, 2.2, 2.9, 3.4 };
+			fastsortList f;
+			f.quickSort(a, 0, 5, cmpfloat);
+			for (i = 0; i < 6; i++)
+			{
+				Assert::AreEqual(a[i], b[i]);
+			}
+			
 		}
 	};
 }
