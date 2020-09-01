@@ -19,11 +19,16 @@ build:
 after_build:
 - cmd: echo 成功
 before_test:
-- cmd: echo 测试开始
+- cmd: >-
+    echo 测试开始
+
+    vstest.console /logger:Appveyor fastsortList\x64\Debug\sortTest.dll
+
+    vstest.console /logger:Appveyor fastsortList\x64\Debug\sortdoubleTest.dll
 test:
   categories:
-  - - vstest.console /logger:Appveyor fastsortList\x64\Debug\sortdoubleTest.dll
-    - vstest.console /logger:Appveyor fastsortList\x64\Debug\sortTest.dll
+  - - fastsortList\x64\Debug\sortTest.dll
+    - fastsortList\x64\Debug\sortdoubleTest.dll
 after_test:
 - cmd: echo 测试结束
 artifacts:
