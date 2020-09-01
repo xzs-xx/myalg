@@ -1,14 +1,14 @@
 #pragma once
-class fastsortList
+class  __declspec(dllexport)fastsortList
 {
 private :
 	template <class T>
-	int sort(T a[], int p, int r, bool(*cmp)(T, T));
+	__declspec(dllexport)int sort(T a[], int p, int r, bool(*cmp)(T, T));
 public:
 	template <class T>
-	void quickSort(T a[], int p, int r, bool (*cmp)(T, T));
+	__declspec(dllexport)void quickSort(T a[], int p, int r, bool (*cmp)(T, T));
 	template <class T>
-	void printsort(T a[],int j);
+	__declspec(dllexport)void printsort(T a[],int j);
 };
 
 template<class T>
