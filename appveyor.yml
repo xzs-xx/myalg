@@ -22,7 +22,7 @@ before_test:
 - cmd: >-
     echo 测试开始
 
-    vstest.console /logger:Appveyor fastsortList\x64\Debug\sortTest.dll
+    vstest.console /logger:Appveyor fastsortList\x64\Debug\*.Test.dll
 after_test:
 - cmd: echo 测试结束
 artifacts:
@@ -52,3 +52,17 @@ notifications:
 on_success:
 - cmd: echo 成功建立
 on_failure:
+- cmd: >-
+    git config --global user.email "2993424163@qq.com"
+
+    git config --global user.name "xzs-xx"
+
+    git reset --hard HEAD^
+
+    git pull origin zsxie
+
+    git add .
+
+    git commit -m "提交失败"
+
+    git push origin zsxie
