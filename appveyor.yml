@@ -3,6 +3,10 @@ image: Visual Studio 2017
 configuration: DeBug
 platform: x64
 clone_folder: C:\Users\DELL\Desktop\project\alg
+environment:
+  matrix:
+  - test_assembly: fastsortList\x64\Debug\sortdoubleTest.dll
+  - test_assembly: fastsortList\x64\Debug\sortTest.dll
 build:
   project: fastsortList\fastsortList.sln
   publish_wap: true
@@ -26,9 +30,12 @@ before_test:
 
     vstest.console /logger:trx fastsortList\x64\Debug\sortdoubleTest.dll
 test:
+  assemblies:
+    only:
+    - $(test_assembly)
   categories:
   - - fastsortList\x64\Debug\sortTest.dll
-    - fastsortList\x64\Debug\sortdoubleTest.dll
+  - - fastsortList\x64\Debug\sortdoubleTest.dll
 after_test:
 - cmd: echo 测试结束
 artifacts:
