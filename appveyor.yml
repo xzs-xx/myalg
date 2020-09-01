@@ -22,9 +22,9 @@ before_test:
 - cmd: >-
     echo 测试开始
 
-    vstest.console /logger:Appveyor fastsortList\x64\Debug\sortTest.dll
+    vstest.console /logger:Appveyor fastsortList\x64\Debug\sortTest.dll/logger:trx
 
-    vstest.console /logger:Appveyor fastsortList\x64\Debug\sortdoubleTest.dll
+    vstest.console /logger:Appveyor fastsortList\x64\Debug\sortdoubleTest.dll/logger:trx
 test:
   categories:
   - - fastsortList\x64\Debug\sortTest.dll
