@@ -27,7 +27,7 @@ namespace sortdoubleTest
 			f.quickSort(a, 0, 5, cmpdouble);
 			for (i = 0; i < 6; i++)
 			{
-				Assert::AreEqual(a[i], b[i]);
+				Assert::AreEqual(a[i], b[i] + 1);
 			}
 			Logger::WriteMessage("²âÊÔ·½·¨2");
 
